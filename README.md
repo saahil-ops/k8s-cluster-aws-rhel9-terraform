@@ -19,7 +19,6 @@ Provision a lightweight Kubernetes cluster on AWS using Terraform with RHEL 9 EC
 | `terraform/` | All Terraform configs to launch EC2, VPC, SGs |
 | `k8s-setup/` | Scripts to bootstrap Kubernetes master and workers |
 | `monitoring/` | Datadog agent installation script |
-| `screenshots/` | Architecture diagram or outputs (optional) |
 
 ---
 
