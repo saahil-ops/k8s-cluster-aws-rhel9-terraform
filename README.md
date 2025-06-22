@@ -1,16 +1,13 @@
 # ☸️ Kubernetes Cluster on AWS using RHEL 9 EC2 + Terraform + Datadog
 
 ## 🔥 Project Objective
-Provision a lightweight Kubernetes cluster on AWS using Terraform with RHEL 9 EC2 instances, and enable real-time monitoring using Datadog.
+Provision a Kubernetes cluster on AWS with RHEL 9 using Terraform. Monitoring is enabled via Datadog agent on all nodes.
 
-## 🧰 Tools & Technologies
-- **Terraform** (Infrastructure as Code)
-- **AWS EC2**, VPC, Security Groups
-- **RHEL 9** (for Kubernetes nodes)
-- **Kubeadm** (K8s bootstrapping)
-- **Datadog** (Monitoring agent on nodes)
-
----
+## 🧰 Tech Stack
+- Terraform (IaC)
+- AWS EC2, VPC, SG
+- RHEL 9, kubeadm
+- Datadog (Monitoring)
 
 ## 📁 Folder Structure
 
@@ -20,12 +17,25 @@ Provision a lightweight Kubernetes cluster on AWS using Terraform with RHEL 9 EC
 | `k8s-setup/` | Scripts to bootstrap Kubernetes master and workers |
 | `monitoring/` | Datadog agent installation script |
 
----
-
-## 🪜 Setup Steps
-
-### 1. Provision AWS Infra using Terraform
+## 🛠️ Setup Guide
+1. Clone the repo
+2. Edit `terraform/variables.tf` and add your RHEL 9 AMI ID
+3. Run Terraform:
 ```bash
-cd terraform/
+cd terraform
 terraform init
-terraform apply -var="ami_id=<your-rhel-9-ami-id>" -auto-approve
+terraform apply -var="ami_id=ami-xxxxxxxx" -auto-approve
+```
+4. SSH into EC2s and run setup scripts
+5. Copy join command from master to worker script
+6. Verify with `kubectl get nodes`
+
+## 📊 Monitoring with Datadog
+Install agent on both nodes with your Datadog API key. Dashboards will auto-populate.
+
+## 🔐 Security
+- SSH via key pair
+- Limited security group ports
+
+## 👨‍💻 Author
+Saahil Tanwar
