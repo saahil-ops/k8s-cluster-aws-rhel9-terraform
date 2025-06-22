@@ -37,5 +37,4 @@ Install agent on both nodes with your Datadog API key. Dashboards will auto-popu
 - SSH via key pair
 - Limited security group ports
 
-## 👨‍💻 Author
-Saahil Tanwar
+## 👨‍💻 If you feel any issue regarding this, feel free to reach out.
